@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import './Counter.css';
 
-
 const Counter = () => {
     const [contador, setContador] = useState(0);
 
@@ -19,11 +18,13 @@ const Counter = () => {
     }
   
     return (
-    <div className="counter">
-        <span>{contador}</span>
-        <button onClick={() => handleOnClick('-')}>-</button>
-        <button onClick={() => handleOnClick('+')}>+</button>
-    </div>
+        <>
+            <div className="counter">
+                <span>{contador}</span>
+                <button onClick={() => handleOnClick('-')}>-</button>
+                <button onClick={() => handleOnClick('+')}>+</button>
+            </div>
+        </>
   );
 }
 

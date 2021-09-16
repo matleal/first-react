@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import Counter from './Counter';
-import Albuns from './Albuns';
-import Users from './Users';
+import Counter from './pages/Counter';
+import Albuns from './pages/Albuns';
+import Users from './pages/Users';
+import Template from './templates/Template';
 
 const defaultPage = 'albuns';
 
@@ -29,18 +30,11 @@ function App() {
   }
 
   const Page = pages[page].component;
-
-  const pageNames = Object.keys(pages)
   
   return (
-    <>
-      { 
-        pageNames.map(page => <button onClick={() => handleOnChangePage(page)}>{pages[page].text}</button>)
-      }
-
-      { Page && <Page /> }
-    </>
-    
+      <Template pages={pages} activePage={page} onChangePage={handleOnChangePage}>
+        { Page && <Page /> }
+      </Template>
   );
 }
 
